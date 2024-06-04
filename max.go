@@ -13,10 +13,10 @@ func Max(a []int) int {
 		}
 	}
 	return max
-
 }
+
 func main() {
-	a := []int{23, 123, 1, 11, 55, 93}
+	a := []int{23, 123, 254, 11, 55, 93}
 	max := Max(a)
 	fmt.Println(max)
 }

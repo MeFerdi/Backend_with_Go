@@ -30,21 +30,21 @@
 // }
 // package main
 
-// func main() {
-// 	mul := func(acc int, cur int) int {
-// 		return acc * cur
-// 	}
-// 	sum := func(acc int, cur int) int {
-// 		return acc + cur
-// 	}
-// 	div := func(acc int, cur int) int {
-// 		return acc / cur
-// 	}
-// 	as := []int{500, 2}
-// 	ReduceInt(as, mul)
-// 	ReduceInt(as, sum)
-// 	ReduceInt(as, div)
-// }
+//	func main() {
+//		mul := func(acc int, cur int) int {
+//			return acc * cur
+//		}
+//		sum := func(acc int, cur int) int {
+//			return acc + cur
+//		}
+//		div := func(acc int, cur int) int {
+//			return acc / cur
+//		}
+//		as := []int{500, 2}
+//		ReduceInt(as, mul)
+//		ReduceInt(as, sum)
+//		ReduceInt(as, div)
+//	}
 package main
 
 import (
@@ -73,7 +73,7 @@ func printNumber(num int) {
 }
 
 func main() {
-	s := 056
+	s := 0o56
 	printNumber(s)
 	z01.PrintRune('\n')
 }

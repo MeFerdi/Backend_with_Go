@@ -1,10 +1,10 @@
-Write a program that is called doop.
+// Write a program that is called doop.
 
-The program has to be used with three arguments:
+// The program has to be used with three arguments:
 
-    A value
-    An operator, one of : +, -, /, *, %
-    Another value
+//     A value
+//     An operator, one of : +, -, /, *, %
+//     Another value
 
 // In case of an invalid operator, value, number of arguments or an overflow, the programs prints nothing.
 
@@ -49,67 +49,87 @@ func main() {
 	arg2 := os.Args[3]
 	operator := os.Args[2]
 
+	a1 := Atoi(arg1)
+
+	a2 := Atoi(arg2)
+
 	switch operator {
 	case "+":
-		printResult(add(arg1, arg2))
+		result := add(a1, a2)
+		Itoa(result)
 	case "-":
-		printResult(subtract(arg1, arg2))
+		result := subtract(a1, a2)
+		Itoa(result)
 	case "*":
-		printResult(multiply(arg1, arg2))
+		result := multiply(a1, a2)
+		Itoa(result)
 	case "/":
-		printResult(divide(arg1, arg2))
+		if a2 == 0 {
+			char := "No division by 0"
+			for _, res := range char {
+				z01.PrintRune(res)
+			}
+			return
+		}
+		result := divide(a1, a2)
+		Itoa(result)
 	case "%":
-		printResult(modulo(arg1, arg2))
+		if a2 == 0 {
+			char := "No modulo by 0"
+			for _, res := range char {
+				z01.PrintRune(res)
+			}
+			return
+		}
+		result := modulo(a1, a2)
+		Itoa(result)
 	}
 }
 
-func add(arg1, arg2 string) rune {
-	return rune(argToNum(arg1) + argToNum(arg2))
-}
-
-func subtract(arg1, arg2 string) rune {
-	return rune(argToNum(arg1) - argToNum(arg2))
-}
-
-func multiply(arg1, arg2 string) rune {
-	return rune(argToNum(arg1) * argToNum(arg2))
-}
-
-func divide(arg1, arg2 string) rune {
-	arg2Int := argToNum(arg2)
-	if arg2Int == 0 {
-		return '0'
-	}
-	return rune(argToNum(arg1) / arg2Int)
-}
-
-func modulo(arg1, arg2 string) rune {
-	arg2Int := argToNum(arg2)
-	if arg2Int == 0 {
-		return '0'
-	}
-	return rune(argToNum(arg1) % arg2Int)
-}
-
-func argToNum(arg string) int {
+func Atoi(s string) int {
 	result := 0
 	sign := 1
-	for _, ch := range arg {
+	for _, ch := range s {
 		if ch == '-' {
 			sign = -1
 			continue
 		}
-		if ch >= '0' && ch <= '9' {
-			result = result*10 + int(ch-'0')
+		if ch < '0' || ch > '9' {
+			return 0
 		}
+		result = result*10 + int(ch-'0')
 	}
 	return sign * result
 }
 
-func printResult(result rune) {
-	if result < '0' || result > '9' {
-		return
+func add(a, b int) int {
+	return a + b
+}
+
+func subtract(a, b int) int {
+	return a - b
+}
+
+func multiply(a, b int) int {
+	return a * b
+}
+
+func divide(a, b int) int {
+	return a / b
+}
+
+func modulo(a, b int) int {
+	return a % b
+}
+
+func Itoa(result int) {
+	if result < 0 {
+		z01.PrintRune('-')
+		result = -result
 	}
-	z01.PrintRune(result)
+	if result >= 10 {
+		Itoa(result / 10)
+	}
+	z01.PrintRune(rune(result%10 + '0'))
 	z01.PrintRune('\n')
 }

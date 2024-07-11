@@ -36,7 +36,9 @@
 // $
 package main
 
-import "github.com/01-edu/z01"
+import (
+	"github.com/01-edu/z01"
+)
 
 func ReduceInt(a []int, f func(int, int) int) {
 	if len(a) < 1 {
@@ -91,7 +93,7 @@ func main() {
 	div := func(acc int, cur int) int {
 		return acc / cur
 	}
-	as := []int{500, 2}
+	as := []int{125, 2}
 	ReduceInt(as, mul)
 	ReduceInt(as, sum)
 	ReduceInt(as, div)

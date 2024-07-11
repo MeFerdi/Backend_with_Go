@@ -7,6 +7,9 @@ import (
 )
 
 func LastParam() {
+	if len(os.Args) < 2 {
+		return
+	}
 	Args := os.Args[len(os.Args)-1]
 	for _, char := range Args {
 		z01.PrintRune(char)

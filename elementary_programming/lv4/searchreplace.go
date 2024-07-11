@@ -14,4 +14,30 @@
 // abcd
 // $ go run . "something" "a" "o" "b" "c"
 // $
+package main
 
+import (
+	"os"
+
+	"github.com/01-edu/z01"
+)
+
+func main() {
+	if len(os.Args) != 4 {
+		return
+	}
+	args := os.Args[1:]
+	var words string
+
+	for _, arg := range args[0] {
+		if string(arg) == args[1] {
+			words += args[2]
+		} else {
+			words += string(arg)
+		}
+	}
+	for _, c := range words {
+		z01.PrintRune(c)
+	}
+	z01.PrintRune('\n')
+}

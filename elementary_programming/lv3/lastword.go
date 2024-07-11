@@ -17,4 +17,30 @@
 // $ go run . "  lorem,ipsum  " | cat -e
 // lorem,ipsum$
 // $
+package main
 
+import (
+	"os"
+
+	"github.com/01-edu/z01"
+)
+
+func main() {
+	if len(os.Args) != 2 {
+		return
+	}
+	str := os.Args[1]
+	lastWordIndex := len(str) - 1
+	for lastWordIndex >= 0 && str[lastWordIndex] == ' ' {
+		lastWordIndex--
+	}
+	startWordIndex := lastWordIndex
+	for startWordIndex >= 0 && str[startWordIndex] != ' ' {
+		startWordIndex--
+	}
+	startWordIndex++
+	for i := startWordIndex; i <= lastWordIndex; i++ {
+		z01.PrintRune(rune(str[i]))
+	}
+	z01.PrintRune('\n')
+}

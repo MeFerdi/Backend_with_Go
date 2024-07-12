@@ -1,30 +1,53 @@
-// Write a program that displays a number's multiplication table.
+package main
 
-//     The parameter will always be a strictly positive number that fits in an int. Said number multiplied by 9 will also fit in an int.
+import (
+	"os"
 
-// Usage
+	"github.com/01-edu/z01"
+)
 
-// $ go run . 9
-// 1 x 9 = 9
-// 2 x 9 = 18
-// 3 x 9 = 27
-// 4 x 9 = 36
-// 5 x 9 = 45
-// 6 x 9 = 54
-// 7 x 9 = 63
-// 8 x 9 = 72
-// 9 x 9 = 81
-// $ go run . 19
-// 1 x 19 = 19
-// 2 x 19 = 38
-// 3 x 19 = 57
-// 4 x 19 = 76
-// 5 x 19 = 95
-// 6 x 19 = 114
-// 7 x 19 = 133
-// 8 x 19 = 152
-// 9 x 19 = 171
-// $ go run .
+func BasicAtoi(s string) int {
+	q := 0
+	for _, r := range s {
+		q = q*10 + int(r-'0')
+	}
+	return q
+}
 
-// $
+func Itoa(n int) string {
+	if n == 0 {
+		return "0"
+	}
+	sign := ""
+	if n < 0 {
+		n = -n
+		sign = "-"
+	}
+	q := ""
+	for n > 0 {
+		digits := n % 10
+		q = string(rune('0'+digits)) + q
+		n /= 10
+	}
+	return sign + q
+}
 
+func PrintStr(s string) {
+	for _, char := range s {
+		z01.PrintRune(char)
+	}
+	z01.PrintRune('\n')
+}
+
+func main() {
+	if len(os.Args) != 2 {
+		return
+	}
+	args := os.Args[1]
+	num := BasicAtoi(args)
+
+	for i := 1; i <= 9; i++ {
+		table := num * i
+		PrintStr(Itoa(i) + " x " + Itoa(num) + " = " + Itoa(table))
+	}
+}

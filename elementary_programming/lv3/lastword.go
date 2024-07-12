@@ -30,16 +30,16 @@ func main() {
 		return
 	}
 	str := os.Args[1]
-	lastWordIndex := len(str) - 1
-	for lastWordIndex >= 0 && str[lastWordIndex] == ' ' {
-		lastWordIndex--
+	lastIndex := len(str) - 1
+	for lastIndex >= 0 && str[lastIndex] == ' ' {
+		lastIndex--
 	}
-	startWordIndex := lastWordIndex
-	for startWordIndex >= 0 && str[startWordIndex] != ' ' {
-		startWordIndex--
+	startIndex := lastIndex
+	for startIndex >= 0 && str[startIndex] != ' ' {
+		startIndex--
 	}
-	startWordIndex++
-	for i := startWordIndex; i <= lastWordIndex; i++ {
+	startIndex++
+	for i := startIndex; i <= lastIndex; i++ {
 		z01.PrintRune(rune(str[i]))
 	}
 	z01.PrintRune('\n')

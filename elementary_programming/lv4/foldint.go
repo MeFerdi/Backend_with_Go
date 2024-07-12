@@ -37,3 +37,5 @@
 // 93
 // $
 
+package main
+

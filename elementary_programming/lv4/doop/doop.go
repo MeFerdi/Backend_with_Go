@@ -80,7 +80,7 @@ func main() {
 		result = a / b
 	case "%":
 		if b == 0 {
-			char := "NO modulo by 0"
+			char := "No modulo by 0"
 			for _, res := range char {
 				z01.PrintRune(res)
 			}

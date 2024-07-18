@@ -27,4 +27,47 @@
 // $ go run .
 
 // $
+package main
 
+import (
+	"os"
+	"strconv"
+
+	"github.com/01-edu/z01"
+)
+
+func main() {
+	if len(os.Args) != 2 {
+		return
+	}
+
+	num, err := strconv.Atoi(os.Args[1])
+	if err != nil || num <= 0 {
+		return
+	}
+
+	for i := 1; i <= 9; i++ {
+		result := num * i
+		printMultiplication(i, num, result)
+		z01.PrintRune('\n')
+	}
+}
+
+func printMultiplication(a, b, result int) {
+	printNumber(a)
+	z01.PrintRune(' ')
+	z01.PrintRune('x')
+	z01.PrintRune(' ')
+	printNumber(b)
+	z01.PrintRune(' ')
+	z01.PrintRune('=')
+	z01.PrintRune(' ')
+	printNumber(result)
+}
+
+func printNumber(n int) {
+	if n >= 10 {
+		printNumber(n / 10)
+	}
+	z01.PrintRune(rune(n%10 + '0'))
+}

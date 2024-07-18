@@ -26,18 +26,17 @@ func main() {
 	if len(os.Args) != 4 {
 		return
 	}
-	args := os.Args[1:]
+	Args := os.Args[1:]
 	var words string
-
-	for _, arg := range args[0] {
-		if string(arg) == args[1] {
-			words += args[2]
+	for _, arg := range Args[0] {
+		if string(arg) == Args[1] {
+			words += Args[2]
 		} else {
 			words += string(arg)
 		}
 	}
-	for _, c := range words {
-		z01.PrintRune(c)
+	for _, res := range words {
+		z01.PrintRune(res)
 	}
 	z01.PrintRune('\n')
 }

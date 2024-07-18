@@ -30,6 +30,7 @@ func main() {
 	if len(os.Args) != 2 {
 		return
 	}
+<<<<<<< HEAD
 
 	arg := os.Args[1]
 	newArg := 0
@@ -40,6 +41,14 @@ func main() {
 
 	}
 
+=======
+	arg := os.Args[1]
+	newArg := 0
+	for _, char := range arg {
+		n := int(char - 48)
+		newArg = (newArg * 10) + n
+	}
+>>>>>>> refs/remotes/origin/main
 	fmt.Println(isPowerof2(newArg))
 }
 

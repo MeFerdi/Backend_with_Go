@@ -42,6 +42,11 @@
 // $
 package main
 
+<<<<<<< HEAD
+=======
+package main
+
+>>>>>>> refs/remotes/origin/main
 import (
 	"os"
 
@@ -49,6 +54,7 @@ import (
 )
 
 func main() {
+<<<<<<< HEAD
 	const Error = "ERROR: cannot convert to roman digit"
 
 	if len(os.Args) != 2 {
@@ -122,10 +128,52 @@ func main() {
 		for _, c := range n {
 			z01.PrintRune(c)
 		}
+=======
+	if len(os.Args) != 2 {
+		PrintError()
+		return
+	}
+
+	arg := os.Args[1]
+	num := Atoi(arg)
+	if num <= 0 || num >= 4000 {
+		PrintError()
+		return
+	}
+
+	roman, calculation := ToRoman(num)
+	PrintStr(calculation)
+	PrintStr(roman)
+}
+
+func ToRoman(num int) (string, string) {
+	val := []int{1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1}
+	sym := []string{"M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"}
+
+	roman, calculation := "", ""
+
+	for i := 0; i < len(val); i++ {
+		for num >= val[i] {
+			num -= val[i]
+			roman += sym[i]
+			if calculation != "" {
+				calculation += "+"
+			}
+			calculation += sym[i]
+		}
+	}
+	return roman, calculation
+}
+
+func PrintStr(s string) {
+	for _, c := range s {
+		z01.PrintRune(c)
+>>>>>>> refs/remotes/origin/main
 	}
 	z01.PrintRune('\n')
 }
 
+<<<<<<< HEAD
 // strconv.Atoi is allowed
 func Atoi(s string) int {
 	var number int
@@ -141,4 +189,27 @@ func Atoi(s string) int {
 		}
 	}
 	return number * sign
+=======
+func PrintError() {
+	msg := "ERROR: cannot convert to roman digit"
+	PrintStr(msg)
+}
+
+func Atoi(s string) int {
+	q := 0
+	sign := 1
+
+	for idx, char := range s {
+		if char == '-' && idx == 0 {
+			sign = -1
+		} else if char == '+' && idx == 0 {
+			sign = 1
+		} else if char >= '0' && char <= '9' {
+			q = q*10 + int(char-'0')
+		} else {
+			return 0
+		}
+	}
+	return q * sign
+>>>>>>> refs/remotes/origin/main
 }

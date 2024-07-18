@@ -38,6 +38,7 @@
 // $
 package main
 
+<<<<<<< HEAD
 import "fmt"
 
 func FoldInt(f func(int, int) int, a []int, n int) {
@@ -66,3 +67,7 @@ func main() {
 	FoldInt(Mul, table, ac)
 	FoldInt(Sub, table, ac)
 }
+=======
+package main
+
+>>>>>>> refs/remotes/origin/main

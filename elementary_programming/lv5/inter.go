@@ -13,6 +13,11 @@
 // $
 package main
 
+<<<<<<< HEAD
+=======
+package main
+
+>>>>>>> refs/remotes/origin/main
 import (
 	"os"
 

@@ -1,70 +1,46 @@
-<<<<<<< HEAD
-// Instructions
+// // // Write a program that takes a string and displays its last word, followed by a newline ('\n').
 
-=======
->>>>>>> refs/remotes/origin/main
-// Write a program that takes a string and displays its last word, followed by a newline ('\n').
+// // //     A word is a section of string delimited by spaces or by the start/end of the string.
 
-//     A word is a section of string delimited by spaces or by the start/end of the string.
+// // //     The output will be followed by a newline ('\n').
 
-//     The output will be followed by a newline ('\n').
+// // //     If the number of arguments is different from 1, or if there are no word, the program displays nothing.
 
-//     If the number of arguments is different from 1, or if there are no word, the program displays nothing.
+// // // Usage
 
-// Usage
+// // // $ go run . "FOR PONY" | cat -e
+// // // PONY$
+// // // $ go run . "this        ...       is sparta, then again, maybe    not" | cat -e
+// // // not$
+// // // $ go run . "  "
+// // // $ go run . "a" "b"
+// // // $ go run . "  lorem,ipsum  " | cat -e
+// // // lorem,ipsum$
+// // // $
+// package main
 
-// $ go run . "FOR PONY" | cat -e
-// PONY$
-// $ go run . "this        ...       is sparta, then again, maybe    not" | cat -e
-// not$
-// $ go run . "  "
-// $ go run . "a" "b"
-// $ go run . "  lorem,ipsum  " | cat -e
-// lorem,ipsum$
-// $
-package main
+// import (
+// 	"os"
 
-import (
-	"os"
+// 	"github.com/01-edu/z01"
+// )
 
-	"github.com/01-edu/z01"
-)
-
-func main() {
-	if len(os.Args) != 2 {
-		return
-	}
-<<<<<<< HEAD
-
-	str := os.Args[1]
-	lastWordIndex := len(str) - 1
-	for lastWordIndex >= 0 && str[lastWordIndex] == ' ' {
-		lastWordIndex--
-	}
-
-	startIndex := lastWordIndex
-=======
-	str := os.Args[1]
-	lastIndex := len(str) - 1
-	for lastIndex >= 0 && str[lastIndex] == ' ' {
-		lastIndex--
-	}
-	startIndex := lastIndex
->>>>>>> refs/remotes/origin/main
-	for startIndex >= 0 && str[startIndex] != ' ' {
-		startIndex--
-	}
-	startIndex++
-<<<<<<< HEAD
-
-	for i := startIndex; i <= lastWordIndex; i++ {
-		z01.PrintRune(rune(str[i]))
-	}
-
-=======
-	for i := startIndex; i <= lastIndex; i++ {
-		z01.PrintRune(rune(str[i]))
-	}
->>>>>>> refs/remotes/origin/main
-	z01.PrintRune('\n')
-}
+// func main() {
+// 	if len(os.Args) != 2 {
+// 		return
+// 	}
+// 	str := os.Args[1]
+// 	lastIndex := len(str) - 1
+// 	for lastIndex >= 0 && str[lastIndex] == ' ' {
+// 		lastIndex--
+// 	}
+// 	startIndex := lastIndex
+// 	for startIndex >= 0 && str[startIndex] != ' ' {
+// 		startIndex--
+// 	}
+// 	startIndex++
+// 	for i := startIndex; i <= lastIndex; i++ {
+// 		z01.PrintRune(rune(str[i]))
+// 	}
+// 	z01.PrintRune('\n')
+// }

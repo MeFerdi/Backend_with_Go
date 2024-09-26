@@ -11,9 +11,13 @@
 // $ go run . ddf6vewg64f  twthgdwthdwfteewhrtag6h4ffdhsd
 // df6ewg4
 // $
-
 package main
 
+<<<<<<< HEAD
+=======
+package main
+
+>>>>>>> refs/remotes/origin/main
 import (
 	"os"
 

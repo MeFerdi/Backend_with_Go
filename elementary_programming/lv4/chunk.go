@@ -31,6 +31,7 @@
 // [[0 1 2 3 4] [5 6 7]]
 // [[0 1 2 3] [4 5 6 7]]
 // $
+<<<<<<< HEAD
 
 package main
 
@@ -39,6 +40,17 @@ import (
 )
 
 func Chunk(slice []int, size int) {
+=======
+package main
+
+import "fmt"
+
+func Chunk(slice []int, size int) {
+	count := 0
+	var newSlice []int
+	var outputSlice [][]int
+
+>>>>>>> 5176d1612acef36c1e120732bcb46e32e06b0f95
 	if size == 0 {
 		fmt.Println()
 		return
@@ -47,6 +59,7 @@ func Chunk(slice []int, size int) {
 		fmt.Println(slice)
 		return
 	}
+<<<<<<< HEAD
 
 	outputSlice := [][]int{}
 	for size < len(slice) {
@@ -57,3 +70,26 @@ func Chunk(slice []int, size int) {
 
 	fmt.Println(outputSlice)
 }
+=======
+	for _, char := range slice {
+		newSlice = append(newSlice, char)
+		count++
+		if count == size {
+			outputSlice = append(outputSlice, newSlice)
+			newSlice = []int{}
+			count = 0
+		}
+	}
+	if len(newSlice) > 0 {
+		outputSlice = append(outputSlice, newSlice)
+	}
+	fmt.Println(outputSlice)
+}
+func main() {
+	Chunk([]int{}, 10)
+	Chunk([]int{0, 1, 2, 3, 4, 5, 6, 7}, 0)
+	Chunk([]int{0, 1, 2, 3, 4, 5, 6, 7}, 3)
+	Chunk([]int{0, 1, 2, 3, 4, 5, 6, 7}, 5)
+	Chunk([]int{0, 1, 2, 3, 4, 5, 6, 7}, 4)
+}
+>>>>>>> 5176d1612acef36c1e120732bcb46e32e06b0f95

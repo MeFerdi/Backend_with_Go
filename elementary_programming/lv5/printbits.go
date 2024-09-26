@@ -44,6 +44,15 @@ func Atoi(s string) int {
 	var number int
 	sign := 1
 
+<<<<<<< HEAD
+	for i, char := range s {
+		if char == '-' && i == 0 {
+			sign = -1
+		} else if char == '+' && i == 0 {
+			sign = 1
+		} else if char >= '0' && char <= '9' {
+			number = number*10 + int(char-'0')
+=======
 	for idx, c := range s {
 		if c == '-' && idx == 0 {
 			sign = -1
@@ -51,6 +60,7 @@ func Atoi(s string) int {
 			sign = 1
 		} else if c >= '0' && c <= '9' {
 			number = number*10 + int(c-'0')
+>>>>>>> refs/remotes/origin/main
 		} else {
 			return 0
 		}

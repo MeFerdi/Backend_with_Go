@@ -14,6 +14,17 @@ func BasicAtoi(s string) int {
 	return q
 }
 
+<<<<<<< HEAD
+// $
+package main
+
+import (
+	"os"
+	"strconv"
+
+	"github.com/01-edu/z01"
+)
+=======
 func Itoa(n int) string {
 	if n == 0 {
 		return "0"
@@ -38,11 +49,45 @@ func PrintStr(s string) {
 	}
 	z01.PrintRune('\n')
 }
+>>>>>>> refs/remotes/origin/main
 
 func main() {
 	if len(os.Args) != 2 {
 		return
 	}
+<<<<<<< HEAD
+
+	num, err := strconv.Atoi(os.Args[1])
+	if err != nil || num <= 0 {
+		return
+	}
+
+	for i := 1; i <= 9; i++ {
+		result := num * i
+		printMultiplication(i, num, result)
+		z01.PrintRune('\n')
+	}
+}
+
+func printMultiplication(a, b, result int) {
+	printNumber(a)
+	z01.PrintRune(' ')
+	z01.PrintRune('x')
+	z01.PrintRune(' ')
+	printNumber(b)
+	z01.PrintRune(' ')
+	z01.PrintRune('=')
+	z01.PrintRune(' ')
+	printNumber(result)
+}
+
+func printNumber(n int) {
+	if n >= 10 {
+		printNumber(n / 10)
+	}
+	z01.PrintRune(rune(n%10 + '0'))
+}
+=======
 	args := os.Args[1]
 	num := BasicAtoi(args)
 
@@ -51,3 +96,4 @@ func main() {
 		PrintStr(Itoa(i) + " x " + Itoa(num) + " = " + Itoa(table))
 	}
 }
+>>>>>>> refs/remotes/origin/main

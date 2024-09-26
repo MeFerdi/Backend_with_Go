@@ -40,9 +40,13 @@
 // $ go run . 4000
 // ERROR: cannot convert to roman digit
 // $
-
 package main
 
+<<<<<<< HEAD
+=======
+package main
+
+>>>>>>> refs/remotes/origin/main
 import (
 	"os"
 
@@ -50,6 +54,81 @@ import (
 )
 
 func main() {
+<<<<<<< HEAD
+	const Error = "ERROR: cannot convert to roman digit"
+
+	if len(os.Args) != 2 {
+		return
+	}
+	args := os.Args[1]
+	var result []string
+	var result1 []string
+
+	number := Atoi(args)
+	if number == 0 || number >= 4000 {
+		for _, c := range Error {
+			z01.PrintRune(c)
+		}
+		z01.PrintRune('\n')
+		return
+	}
+
+	for number > 0 {
+		if number >= 1000 {
+			result1, result = append(result1, "M"), append(result, "M")
+			number -= 1000
+		} else if number >= 900 {
+			result1, result = append(result1, "CM"), append(result, "(M-C)")
+			number -= 900
+		} else if number >= 500 {
+			result1, result = append(result1, "D"), append(result, "D")
+			number -= 500
+		} else if number >= 400 {
+			result1, result = append(result1, "CD"), append(result, "(D-C)")
+			number -= 400
+		} else if number >= 100 {
+			result1, result = append(result1, "C"), append(result, "C")
+			number -= 100
+		} else if number >= 90 {
+			result1, result = append(result1, "XC"), append(result, "(C-X)")
+			number -= 90
+		} else if number >= 50 {
+			result1, result = append(result1, "L"), append(result, "L")
+			number -= 50
+		} else if number >= 40 {
+			result1, result = append(result1, "XL"), append(result, "(L-X)")
+			number -= 40
+		} else if number >= 10 {
+			result1, result = append(result1, "X"), append(result, "X")
+			number -= 10
+		} else if number >= 9 {
+			result1, result = append(result1, "IX"), append(result, "(X-I)")
+			number -= 9
+		} else if number >= 5 {
+			result1, result = append(result1, "V"), append(result, "V")
+			number -= 5
+		} else if number >= 4 {
+			result1, result = append(result1, "IV"), append(result, "(v-I)")
+			number -= 4
+		} else {
+			result1, result = append(result1, "I"), append(result, "I")
+			number -= 1
+		}
+	}
+	for i, c := range result {
+		for _, n := range c {
+			z01.PrintRune(n)
+		}
+		if i < len(result)-1 {
+			z01.PrintRune('+')
+		}
+	}
+	z01.PrintRune('\n')
+	for _, n := range result1 {
+		for _, c := range n {
+			z01.PrintRune(c)
+		}
+=======
 	if len(os.Args) != 2 {
 		PrintError()
 		return
@@ -89,10 +168,28 @@ func ToRoman(num int) (string, string) {
 func PrintStr(s string) {
 	for _, c := range s {
 		z01.PrintRune(c)
+>>>>>>> refs/remotes/origin/main
 	}
 	z01.PrintRune('\n')
 }
 
+<<<<<<< HEAD
+// strconv.Atoi is allowed
+func Atoi(s string) int {
+	var number int
+	sign := 1
+
+	for i, char := range s {
+		if char == '-' && i == 0 {
+			sign = -1
+		} else if char == '+' && i == 0 {
+			sign = 1
+		} else if char >= '0' && char <= '9' {
+			number = number*10 + int(char-'0')
+		}
+	}
+	return number * sign
+=======
 func PrintError() {
 	msg := "ERROR: cannot convert to roman digit"
 	PrintStr(msg)
@@ -114,4 +211,5 @@ func Atoi(s string) int {
 		}
 	}
 	return q * sign
+>>>>>>> refs/remotes/origin/main
 }

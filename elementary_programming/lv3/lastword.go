@@ -1,3 +1,8 @@
+<<<<<<< HEAD
+// Instructions
+
+=======
+>>>>>>> refs/remotes/origin/main
 // Write a program that takes a string and displays its last word, followed by a newline ('\n').
 
 //     A word is a section of string delimited by spaces or by the start/end of the string.
@@ -29,18 +34,37 @@ func main() {
 	if len(os.Args) != 2 {
 		return
 	}
+<<<<<<< HEAD
+
+	str := os.Args[1]
+	lastWordIndex := len(str) - 1
+	for lastWordIndex >= 0 && str[lastWordIndex] == ' ' {
+		lastWordIndex--
+	}
+
+	startIndex := lastWordIndex
+=======
 	str := os.Args[1]
 	lastIndex := len(str) - 1
 	for lastIndex >= 0 && str[lastIndex] == ' ' {
 		lastIndex--
 	}
 	startIndex := lastIndex
+>>>>>>> refs/remotes/origin/main
 	for startIndex >= 0 && str[startIndex] != ' ' {
 		startIndex--
 	}
 	startIndex++
+<<<<<<< HEAD
+
+	for i := startIndex; i <= lastWordIndex; i++ {
+		z01.PrintRune(rune(str[i]))
+	}
+
+=======
 	for i := startIndex; i <= lastIndex; i++ {
 		z01.PrintRune(rune(str[i]))
 	}
+>>>>>>> refs/remotes/origin/main
 	z01.PrintRune('\n')
 }

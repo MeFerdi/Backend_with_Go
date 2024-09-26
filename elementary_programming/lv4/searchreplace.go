@@ -14,9 +14,13 @@
 // abcd
 // $ go run . "something" "a" "o" "b" "c"
 // $
-
 package main
 
+<<<<<<< HEAD
+package main
+
+=======
+>>>>>>> 5176d1612acef36c1e120732bcb46e32e06b0f95
 import (
 	"os"
 
@@ -27,18 +31,31 @@ func main() {
 	if len(os.Args) != 4 {
 		return
 	}
+<<<<<<< HEAD
 	args := os.Args[1:]
 	var words string
 
 	for _, arg := range args[0] {
 		if string(arg) == args[1] {
 			words += args[2]
+=======
+	Args := os.Args[1:]
+	var words string
+	for _, arg := range Args[0] {
+		if string(arg) == Args[1] {
+			words += Args[2]
+>>>>>>> 5176d1612acef36c1e120732bcb46e32e06b0f95
 		} else {
 			words += string(arg)
 		}
 	}
+<<<<<<< HEAD
 	for _, c := range words {
 		z01.PrintRune(c)
+=======
+	for _, res := range words {
+		z01.PrintRune(res)
+>>>>>>> 5176d1612acef36c1e120732bcb46e32e06b0f95
 	}
 	z01.PrintRune('\n')
 }

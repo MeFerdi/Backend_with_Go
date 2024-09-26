@@ -36,7 +36,9 @@
 // $
 package main
 
-import "github.com/01-edu/z01"
+import (
+	"github.com/01-edu/z01"
+)
 
 func ReduceInt(a []int, f func(int, int) int) {
 	if len(a) < 1 {
@@ -47,38 +49,21 @@ func ReduceInt(a []int, f func(int, int) int) {
 	for i := 1; i < len(a); i++ {
 		result = f(result, a[i])
 	}
-	itoa(result)
+	Itoa(result)
+	z01.PrintRune('\n')
 }
 
 // println(result)
-func itoa(n int) {
-	if n == 0 {
-		z01.PrintRune('0')
-		return
-	}
-
-	negative := false
+func Itoa(n int) {
 	if n < 0 {
-		negative = true
+		z01.PrintRune('-')
 		n = -n
 	}
-
-	var digits []rune
-
-	for n > 0 {
-		digit := n % 10
-		n /= 10
-		digits = append(digits, rune(digit+'0'))
+	if n >= 10 {
+		Itoa(n / 10)
 	}
+	z01.PrintRune(rune(n%10 + '0'))
 
-	if negative {
-		z01.PrintRune('-')
-	}
-
-	for i := len(digits) - 1; i >= 0; i-- {
-		z01.PrintRune(digits[i])
-	}
-	z01.PrintRune('\n')
 }
 
 // func main() {

@@ -31,3 +31,29 @@
 // [[0 1 2 3 4] [5 6 7]]
 // [[0 1 2 3] [4 5 6 7]]
 // $
+
+package main
+
+import (
+	"fmt"
+)
+
+func Chunk(slice []int, size int) {
+	if size == 0 {
+		fmt.Println()
+		return
+	}
+	if len(slice) == 0 {
+		fmt.Println(slice)
+		return
+	}
+
+	outputSlice := [][]int{}
+	for size < len(slice) {
+		outputSlice = append(outputSlice, slice[:size])
+		slice = slice[size:]
+	}
+	outputSlice = append(outputSlice, slice)
+
+	fmt.Println(outputSlice)
+}

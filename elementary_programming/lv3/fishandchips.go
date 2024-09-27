@@ -18,8 +18,8 @@ func FishAndChips(n int) string {
 	return ""
 }
 
-func main() {
-	fmt.Println(FishAndChips(4))
-	fmt.Println(FishAndChips(9))
-	fmt.Println(FishAndChips(6))
-}
+// func main() {
+// 	fmt.Println(FishAndChips(4))
+// 	fmt.Println(FishAndChips(9))
+// 	fmt.Println(FishAndChips(6))
+// }

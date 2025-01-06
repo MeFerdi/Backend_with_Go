@@ -26,16 +26,9 @@
 // 5
 // 3
 // $
-<<<<<<< HEAD
 
 package main
 
-=======
-package main
-
-import "fmt"
-
->>>>>>> 5176d1612acef36c1e120732bcb46e32e06b0f95
 func FindPrevPrime(nb int) int {
 	if nb < 2 {
 		return 0
@@ -57,11 +50,3 @@ func IsPrime(n int) bool {
 	}
 	return true
 }
-<<<<<<< HEAD
-=======
-
-func main() {
-	fmt.Println(FindPrevPrime(7))
-	fmt.Println(FindPrevPrime(6))
-}
->>>>>>> 5176d1612acef36c1e120732bcb46e32e06b0f95

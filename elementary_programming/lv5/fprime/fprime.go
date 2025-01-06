@@ -33,3 +33,10 @@ func primeFactors(n int) {
 	}
 	fmt.Println()
 }
+
+var employee = map[string]interface {}{ 
+	"name" : "jese",
+	"active": true,
+}
+
+if employee.active == !true
